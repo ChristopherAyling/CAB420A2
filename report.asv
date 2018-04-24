@@ -100,24 +100,19 @@ for j=1:10
     what2{j} = mu - alpha*(V(:, j)');
 end
 
-img = [reshape(what{1}, [24, 24])];
+for j=1:10
+   img = [image, reshape(what{j}, [24, 24])]
+end
+
+img = [reshape(what{1}, [24, 24]), reshape(what{2}, [24, 24])];
 figure(8);
 imagesc(img);
 axis square;
 colormap gray;
-
 %% 
 % *(d)*
-idx = [1:20];
-figure; hold on; axis ij; colormap(gray);
-range = max(W(idx, 1:2)) - min(W(idx, 1:2));
-scale = [200 200]./range;
-for i=idx, imagesc(W(i,1)*scale(1),W(i,2)*scale(2), reshape(X(i,:), 24, 24)); end;
-
 %% 
 % *(e)*
-
-
 
 %% Clustering
 %% 
