@@ -57,3 +57,7 @@ plot(centroids2(:,1), centroids2(:,2), 'x', ...
     'MarkerEdgeColor','k', ...
     'MarkerSize', 10, 'LineWidth', 3);
 title('K-means clustering where k=20');
+
+%% part c
+
+
