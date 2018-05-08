@@ -21,7 +21,6 @@ if (nargin < 4) nIter=100;      end;
 if (nargin < 3) cInit='random'; end;
 
 doPlot = false;
-%doPlot = true;
 
 [N,D] = size(X);                             % get data size
 
@@ -88,7 +87,7 @@ end;
 T.pi = alpha; T.mu = mu; T.Sig = Sig;
 soft = R;
 
-if (iter >= nIter) warning('emclust:iter','emclust:iter :: stopped after reaching maximum number of iterations'); end;
+%if (iter >= nIter) warning('emclust:iter','emclust:iter :: stopped after reaching maximum number of iterations'); end;
 
 z = from1ofK(R);
 

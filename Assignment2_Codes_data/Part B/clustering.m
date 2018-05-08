@@ -1,3 +1,4 @@
+%% *a*
 % Clean up
 clc
 close all
@@ -10,7 +11,7 @@ scatter(iris(:,1), iris(:,2), 15, 'mo');
 hold on;
 title('Iris dataset');
 
-
+%% *b*
 % For k=5, initialise random centroids
 K1=5;
 initial_centroids1 = [
@@ -58,6 +59,32 @@ plot(centroids2(:,1), centroids2(:,2), 'x', ...
     'MarkerSize', 10, 'LineWidth', 3);
 title('K-means clustering where k=20');
 
-%% part c
+%% *c*
+% Compute the single, and complete linkage
+sLink = linkage(iris, 'single');
+cLink = linkage(iris, 'complete');
 
+% Plot single linkage, 5 clusters
+clust = cluster(sLink, 'maxclust', 5);
+figure;
+scatter(iris(:,1), iris(:,2), 40, clust, 'filled');
+title('Single linkage agglomerative clustering, 5 clusters');
+
+% Plot single linkage, 20 clusters
+clust = cluster(sLink, 'maxclust', 20);
+figure;
+scatter(iris(:,1), iris(:,2), 40, clust, 'filled');
+title('Single linkage agglomerative clustering, 20 clusters');
+
+% Plot complete linkage, 5 clusters
+clust = cluster(cLink, 'maxclust', 5);
+figure;
+scatter(iris(:,1), iris(:,2), 40, clust, 'filled');
+title('Complete linkage agglomerative clustering, 5 clusters');
+
+% Plot complete linkage, 20 clusters
+clust = cluster(cLink, 'maxclust', 20);
+figure;
+scatter(iris(:,1), iris(:,2), 40, clust, 'filled');
+title('Complete linkage agglomerative clustering, 20 clusters');
 

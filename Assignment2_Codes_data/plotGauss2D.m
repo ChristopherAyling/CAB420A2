@@ -14,3 +14,4 @@ ell = ell + ones(size(ell,1),1)*gMean;
 handle = plot( gMean(1),gMean(2), [colorString 'x'], ell(:,1), ell(:,2), colorString , varargin{:});
 
 
+
