@@ -219,7 +219,7 @@ gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
 %% Part B: PCA & Clustering
 
-%% Eigen Faces
+%% EigenFaces
 clear;
 X = load('data/faces.txt')/255;
 %%
@@ -227,9 +227,10 @@ img = reshape(X(1,:), [24, 24]);
 imagesc(img);
 axis square;
 colormap gray;
+title('Example Face')
 
 %% 
-% *(a)*
+% *(a)* Subtract the mean to make data non zero and take SVD
 [m, n] = size(X);
 
 mu = mean(X);
@@ -242,48 +243,80 @@ X0 = bsxfun(@rdivide, X0, sigma);
 W=U*S;
 
 %% 
-% *(b)*
-ks = [1:10];
+% *(b)* Compute approximation to X0 for K=1...10
+ks = 1:10;
+mserrs = zeros(length(ks));
 for i=1:length(ks)
     X0_hat = W(:, 1:ks(i))*V(:, 1:ks(i))';
-    mse(i) = mean(mean(X0-X0_hat).^2);
+    mserrs(i) = mean(mean(X0-X0_hat).^2);
 end
 
 figure();
 hold on;
-plot(ks, mse);
-title('???'); %TODO Idk what to call this yet
+plot(ks, mserrs);
+title('Mean Squared Error Vs K');
 xlabel('K');
 ylabel('MSE');
 hold off;
 
 
 %% 
-% *(c)*
-what = {};
-what2 = {}
+% *(c)* Display the first few principle directions.
+positive_pcs = {};
+negative_pcs = {};
 for j=1:10
     alpha = 2*median(abs(W(:, j)));
-    what{j} = mu + alpha*(V(:, j)');
-    what2{j} = mu - alpha*(V(:, j)');
+    positive_pcs{j} = mu + alpha*(V(:, j)');
+    negative_pcs{j} = mu - alpha*(V(:, j)');
 end
 
-img = [reshape(what{1}, [24, 24])];
-figure(8);
-imagesc(img);
-axis square;
-colormap gray;
+for i=1:3
+    img = reshape(positive_pcs{i}, [24, 24]);
+    figure('name', sprintf('Principal Direction (Positive) %d', i));
+    imagesc(img);
+    title(sprintf('Principal Direction (Positive) %d', i));
+    axis square;
+    colormap gray;
+    
+    img = reshape(negative_pcs{i}, [24, 24]);
+    figure('name', sprintf('Principal Direction (Negative) %d', i));
+    imagesc(img);
+    title(sprintf('Principal Direction (Negative) %d', i))
+    axis square;
+    colormap gray;
+end
 
 %% 
-% *(d)*
+% *(d)* Latent space visualisation
 idx = [1:20];
-figure; hold on; axis ij; colormap(gray);
+figure('name', 'Latent Space Visualisation'); hold on; axis ij; colormap(gray);
+title('Latent Space Visualisation')
+xlabel('Principal Component 1');
+ylabel('Principal Component 2');
 range = max(W(idx, 1:2)) - min(W(idx, 1:2));
 scale = [200 200]./range;
 for i=idx, imagesc(W(i,1)*scale(1),W(i,2)*scale(2), reshape(X(i,:), 24, 24)); end;
 
 %% 
 % *(e)*
+
+ks = [5, 10, 50];
+faces = [201, 202, 203];
+
+for f=1:length(faces)% for every face
+    figure('name', sprintf('face %d', faces(f)));
+    imagesc(reshape(X(faces(f),:), [24, 24]));
+    axis square;
+    colormap gray;
+    title(sprintf('face %d', faces(f)));
+    for i=1:length(ks) % for every k
+        figure('name', sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
+        imagesc(reshape(W(faces(f), 1:ks(i))*V(1:576, 1:ks(i))', 24, 24));
+        axis square;
+        colormap gray;
+        title(sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
+    end
+end
 
 
 
@@ -415,7 +448,7 @@ scatter(iris(:,1), iris(:,2), 15, palette5(assign,:), 'filled');
 for i = 1:K
     plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), 'k', 'linewidth', 1);
 end
-title('EM Gausian ixture Model with 5 Components');
+title('EM Gausian Mixture Model with 5 Components');
 
 % Next using 20 components
 % Good initialisation vectors found through trial and error
@@ -439,9 +472,13 @@ for i = 1:K
 end
 title('EM Gausian ixture Model with 20 Components');
 
+%%
 % Due to the way in which EM Gaussian mixture frequently overlaps multiple
 % clusters, it may not be the most suitable classifying technique on this
 % data. 
 % 
-% Agglomerative 
+% Agglomerative
+
+%%
+clc; clear; close all;
 

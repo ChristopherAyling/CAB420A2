@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>CAB420 - Machine Learning - Assignment 2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-24"><meta name="DC.source" content="report.m"><style type="text/css">
+      --><title>CAB420 - Machine Learning - Assignment 2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-05-11"><meta name="DC.source" content="report.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>CAB420 - Machine Learning - Assignment 2</h1><!--introduction--><p>Alex Wilson and Christopher Ayling</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Part A: SVMS and Bayes Classifiers</a></li><li><a href="#2">Support Vector Machines</a></li><li><a href="#5">Bayes Classifiers</a></li><li><a href="#8">Part B: PCA &amp; Clustering</a></li><li><a href="#9">Eigen Faces</a></li><li><a href="#15">Clustering</a></li></ul></div><h2 id="1">Part A: SVMS and Bayes Classifiers</h2><h2 id="2">Support Vector Machines</h2><p><b>1.</b></p><pre class="codeinput"><span class="comment">% Clean up</span>
+  </style></head><body><div class="content"><h1>CAB420 - Machine Learning - Assignment 2</h1><!--introduction--><p>Alex Wilson and Christopher Ayling</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Part A: SVMS and Bayes Classifiers</a></li><li><a href="#2">Support Vector Machines</a></li><li><a href="#5">Bayes Classifiers</a></li><li><a href="#8">Part B: PCA &amp; Clustering</a></li><li><a href="#9">EigenFaces</a></li><li><a href="#16">Clustering</a></li></ul></div><h2 id="1">Part A: SVMS and Bayes Classifiers</h2><h2 id="2">Support Vector Machines</h2><p><b>1.</b></p><pre class="codeinput"><span class="comment">% Clean up</span>
 clc
 clear
 close <span class="string">all</span>
@@ -107,112 +107,6 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-   1.0e+03 *
-
-    0.9306
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4807
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4113
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-
 WARNING: 3 training examples were misclassified!!!
 TEST RESULTS: 0.0446 of test examples were misclassified.
 The interior-point-convex algorithm does not accept an initial point.
@@ -225,112 +119,6 @@ feasible directions, to within the default value of the optimality tolerance,
 and constraints are satisfied to within the default value of the constraint tolerance.
 
 
-
-
-alpha =
-
-   1.0e+03 *
-
-    0.8373
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0994
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0111
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4321
-    0.0000
-    0.0000
-    0.4305
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0852
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
 
 WARNING: 2 training examples were misclassified!!!
 TEST RESULTS: 0.0514 of test examples were misclassified.
@@ -345,110 +133,6 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-   11.2665
-    0.4017
-    0.0000
-    0.0000
-    0.0000
-    1.0597
-    0.0000
-    0.0000
-    0.3533
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    7.6289
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.6915
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4181
-    0.0000
-    0.0000
-    0.0000
-   27.9416
-    0.0000
-    0.5453
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4016
-    0.0000
-    0.0000
-    0.0000
-    0.2263
-    0.0000
-    0.0000
-    0.4060
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   14.1593
-    0.0000
-    0.0000
-   16.7741
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.7620
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.3738
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.5661
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.5644
-   13.0729
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-
 TEST RESULTS: 0.0571 of test examples were misclassified.
 The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
@@ -460,112 +144,6 @@ feasible directions, to within the default value of the optimality tolerance,
 and constraints are satisfied to within the default value of the constraint tolerance.
 
 
-
-
-alpha =
-
-   1.0e+03 *
-
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.2833
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.1404
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.4237
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
 
 WARNING: 21 training examples were misclassified!!!
 TEST RESULTS: 0.273 of test examples were misclassified.
@@ -580,110 +158,6 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    3.8915
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   11.7734
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   24.7689
-    0.0000
-    0.0000
-    0.0000
-    0.9108
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.2305
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   39.2925
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-
 TEST RESULTS: 0.011 of test examples were misclassified.
 The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
@@ -696,110 +170,6 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    8.8449
-    0.0000
-    9.5260
-    0.0000
-    0.0000
-    0.0000
-    4.1511
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   20.1041
-   53.1102
-    0.0000
-    1.8296
-    0.0000
-    0.0000
-    0.4329
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    7.2514
-    0.0000
-    0.0000
-    0.0000
-   26.7805
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    3.5707
-    0.0000
-    0.0000
-   44.8522
-   17.9764
-    0.0000
-    0.0000
-   16.1676
-    0.0000
-    1.0253
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    5.8408
-    0.0000
-    0.0000
-    1.5093
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    5.8854
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.6233
-    0.0000
-    0.0000
-    0.0000
-   40.6144
-    0.0000
-   43.0410
-    1.8134
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-   40.9651
-    0.0000
-    3.9915
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-
 TEST RESULTS: 0.014 of test examples were misclassified.
 The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
@@ -811,112 +181,6 @@ feasible directions, to within the default value of the optimality tolerance,
 and constraints are satisfied to within the default value of the constraint tolerance.
 
 
-
-
-alpha =
-
-   1.0e+03 *
-
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0315
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0926
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.1241
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
 
 WARNING: 43 training examples were misclassified!!!
 TEST RESULTS: 0.471 of test examples were misclassified.
@@ -931,112 +195,6 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-   1.0e+03 *
-
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.4387
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0854
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.7728
-    0.0000
-    1.0000
-    0.1642
-    1.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.3654
-    0.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-    0.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    1.0000
-    0.0000
-    0.0000
-    0.0000
-    0.2216
-    1.0000
-    0.0000
-    1.0000
-    1.0000
-    1.0000
-
 WARNING: 10 training examples were misclassified!!!
 TEST RESULTS: 0.132 of test examples were misclassified.
 The interior-point-convex algorithm does not accept an initial point.
@@ -1050,112 +208,279 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-
-alpha =
-
-    0.0000
-    0.0000
-    0.1067
-    0.0000
-    0.0000
-    0.5126
-    0.0000
-    0.0000
-    0.0000
-    0.1788
-    0.0000
-    0.4355
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.2743
-    0.5637
-    0.0000
-    0.0000
-    0.0000
-    0.1688
-    0.3791
-    0.0000
-    0.0000
-    0.0000
-    0.4816
-    0.2192
-    0.0000
-    0.6545
-    0.0000
-    0.4365
-    0.0000
-    0.0000
-    0.6708
-    0.4611
-    0.6785
-    0.0000
-    0.2742
-    0.0000
-    0.0000
-    0.0000
-    0.4938
-    0.0000
-    0.1764
-    0.0000
-    0.0000
-    0.7949
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.6708
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.1707
-    0.0000
-    0.0000
-    0.8856
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.4909
-    0.0000
-    0.9094
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.3484
-    0.9377
-    0.9225
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-    0.6825
-    0.0000
-    0.0000
-    0.0000
-    0.0000
-
 TEST RESULTS: 0 of test examples were misclassified.
-</pre><img vspace="5" hspace="5" src="report_01.png" alt=""> <img vspace="5" hspace="5" src="report_02.png" alt=""> <img vspace="5" hspace="5" src="report_03.png" alt=""> <img vspace="5" hspace="5" src="report_04.png" alt=""> <img vspace="5" hspace="5" src="report_05.png" alt=""> <img vspace="5" hspace="5" src="report_06.png" alt=""> <img vspace="5" hspace="5" src="report_07.png" alt=""> <img vspace="5" hspace="5" src="report_08.png" alt=""> <img vspace="5" hspace="5" src="report_09.png" alt=""> <p><b>2.</b></p><h2 id="5">Bayes Classifiers</h2><p><b>(a)</b></p><p><b>(b)</b></p><h2 id="8">Part B: PCA &amp; Clustering</h2><h2 id="9">Eigen Faces</h2><p><b>(a)</b></p><p><b>(b)</b></p><p><b>(c)</b></p><p><b>(d)</b></p><p><b>(e)</b></p><h2 id="15">Clustering</h2><p><b>(a)</b></p><p><b>(b)</b></p><p><b>(c)</b></p><p><b>(d)</b></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="report_01.png" alt=""> <img vspace="5" hspace="5" src="report_02.png" alt=""> <img vspace="5" hspace="5" src="report_03.png" alt=""> <img vspace="5" hspace="5" src="report_04.png" alt=""> <img vspace="5" hspace="5" src="report_05.png" alt=""> <img vspace="5" hspace="5" src="report_06.png" alt=""> <img vspace="5" hspace="5" src="report_07.png" alt=""> <img vspace="5" hspace="5" src="report_08.png" alt=""> <img vspace="5" hspace="5" src="report_09.png" alt=""> <p><b>2.</b></p><pre class="codeinput">clc;
+clear;
+close <span class="string">all</span>;
+load <span class="string">data_ps3_2.mat</span>
+C = 1000;
+
+set(gcf,<span class="string">'Visible'</span>, <span class="string">'off'</span>);
+lin_err = svm_test2(@Klinear, 1, C, set4_train, set4_test);
+poly_err = svm_test2(@Kpoly, 2, C, set4_train, set4_test);
+gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
+
+<span class="comment">% compare to log regress classifier</span>
+
+<span class="comment">% print results</span>
+</pre><pre class="codeoutput">The interior-point-convex algorithm does not accept an initial point.
+Ignoring X0.
+
+Minimum found that satisfies the constraints.
+
+Optimization completed because the objective function is non-decreasing in 
+feasible directions, to within the default value of the optimality tolerance,
+and constraints are satisfied to within the default value of the constraint tolerance.
+
+
+
+TEST RESULTS: 0.14 of test examples were misclassified.
+The interior-point-convex algorithm does not accept an initial point.
+Ignoring X0.
+
+Minimum found that satisfies the constraints.
+
+Optimization completed because the objective function is non-decreasing in 
+feasible directions, to within the default value of the optimality tolerance,
+and constraints are satisfied to within the default value of the constraint tolerance.
+
+
+
+TEST RESULTS: 0.12 of test examples were misclassified.
+The interior-point-convex algorithm does not accept an initial point.
+Ignoring X0.
+
+Minimum found that satisfies the constraints.
+
+Optimization completed because the objective function is non-decreasing in 
+feasible directions, to within the default value of the optimality tolerance,
+and constraints are satisfied to within the default value of the constraint tolerance.
+
+
+
+TEST RESULTS: 0.085 of test examples were misclassified.
+</pre><img vspace="5" hspace="5" src="report_10.png" alt=""> <img vspace="5" hspace="5" src="report_11.png" alt=""> <img vspace="5" hspace="5" src="report_12.png" alt=""> <h2 id="5">Bayes Classifiers</h2><p><b>(a)</b></p><p>Probabilities needed for joint Bayes classifier can be found by counting the number of occurances of each possible x1 x2 combination ([0,0] [0,1] [1,0] [1,1]). Then finding how many of each of these assosiate with each class. E.g.</p><p>Where <img src="report_eq06679783982583062013.png" alt="$$ y=0 $$"></p><p><img src="report_eq07174598757261453869.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq14855731075494964205.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq11813535016307224419.png" alt="$$ P(y|x) = \frac{3}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq17176349358415773300.png" alt="$$ P(y|x) = \frac{3}{5}\ ,\ x = [1,1] $$"></p><p>Where <img src="report_eq02167458294693543060.png" alt="$$ y=1 $$"></p><p><img src="report_eq11033532155087216859.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq05369295233390269734.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq16134061026334500762.png" alt="$$ P(y|x) = \frac{0}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq13496977117302688557.png" alt="$$ P(y|x) = \frac{2}{5}\ ,\ x = [1,1] $$"></p><p>Therefore, the complete class predictions on the test set looks as follows:</p><pre>  x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat
+   0  |   1  |     25%    |     75%    |    1
+   1  |   0  |    100%    |      0%    |    0
+   1  |   1  |     60%    |     40%    |    0</pre><p><b>(b)</b></p><p>To create a Naive Bayes classifier first the probabilities of each class will be needed:</p><p><img src="report_eq08733904908155435988.png" alt="$$ P(y=0) = \frac{8}{16} $$"></p><p><img src="report_eq17644573422549736043.png" alt="$$ P(y=1) = \frac{8}{16} $$"></p><p>Next, the probability that each x could be in each class:</p><pre>       y=0  |  y=1
+x1  |  6/8  |  2/8
+x2  |  4/8  |  5/8</pre><p>To classify the test set P(x|y) is calculated for each <img src="report_eq12452141560309048751.png" alt="$x_1,\ x_2$"> combination seen in the test set, on each class</p><p><img src="report_eq15101901161455994150.png" alt="$$ P(x=[0,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02010039422427748609.png" alt="$$ = \left(1 - \frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$"></p><p><img src="report_eq01088027859849714145.png" alt="$$ = \frac{1}{8} $$"></p><p><img src="report_eq07297577056424786628.png" alt="$$ P(x=[0,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq13814144923604233870.png" alt="$$ = \left(1 - \frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$"></p><p><img src="report_eq03613889617847864723.png" alt="$$ = \frac{15}{32} $$"></p><p><img src="report_eq01805199305739710664.png" alt="$$ P(x=[1,0]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq03360723122032135743.png" alt="$$ = \left(\frac{6}{8}\right)\cdot \left(1 - \frac{4}{8}\right) $$"></p><p><img src="report_eq11841121126034554100.png" alt="$$ = \frac{3}{8} $$"></p><p><img src="report_eq04403787839525975183.png" alt="$$ P(x=[1,0]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02654727447147148700.png" alt="$$ = \left(\frac{2}{8}\right)\cdot \left(1 - \frac{5}{8}\right) $$"></p><p><img src="report_eq07809309358138474515.png" alt="$$ = \frac{3}{32} $$"></p><p><img src="report_eq11528753465781089822.png" alt="$$ P(x=[1,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq04869917003738548789.png" alt="$$ = \left(\frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$"></p><p><img src="report_eq11841121126034554100.png" alt="$$ = \frac{3}{8} $$"></p><p><img src="report_eq03952955696775771779.png" alt="$$ P(x=[1,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02223072781415199179.png" alt="$$ = \left(\frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$"></p><p><img src="report_eq12671523109205246009.png" alt="$$ = \frac{5}{32} $$"></p><p>Next the P(x) is calculated with the formula</p><p><img src="report_eq13949362751295953089.png" alt="$$ P(x) = \sum_i P(x|y_i)\cdot P(y_i) $$"></p><p>on all test data values of x.</p><p><img src="report_eq02605152681708540147.png" alt="$$ P(x = [0,1]) = \left(\frac{1}{8} \cdot \frac{1}{2}\right) + \left(\frac{15}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq13594826097924396948.png" alt="$$ = \frac{19}{64} $$"></p><p><img src="report_eq00515571973433963842.png" alt="$$ P(x = [1,0]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{3}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq14181149855771462580.png" alt="$$ = \frac{15}{64} $$"></p><p><img src="report_eq16920157623305074601.png" alt="$$ P(x = [1,1]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{5}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq08200529874904421418.png" alt="$$ = \frac{17}{64} $$"></p><p>Finally, the probability of y given each x value can be found by using Bayes rule:</p><p><img src="report_eq06245087331750993367.png" alt="$$ P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p>On x=[0,1]:</p><p><img src="report_eq13917582989817839041.png" alt="$$ P(y=0|x=[0,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq05058990540658050770.png" alt="$$ = \frac{(1/8) \cdot (1/2)}{19/64} $$"></p><p><img src="report_eq16103833419505139392.png" alt="$$ \approx 21\% $$"></p><p>Therefore:</p><p><img src="report_eq13706197855769162630.png" alt="$$ P(y=1|x=[0,1]) \approx 79\% $$"></p><p>And on x=[1,0]:</p><p><img src="report_eq11333572171270899958.png" alt="$$ P(y=0|x=[1,0]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq15610801766847789451.png" alt="$$ = \frac{(3/8) \cdot (1/2)}{15/64} $$"></p><p><img src="report_eq16360476181954792000.png" alt="$$ \approx 80\% $$"></p><p>Therefore:</p><p><img src="report_eq02017721597263676628.png" alt="$$ P(y=1|x=[0,1]) \approx 20\% $$"></p><p>And on x=[1,1]:</p><p><img src="report_eq17117026065958485479.png" alt="$$ P(y=0|x=[1,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq08562609533734353299.png" alt="$$ = \frac{(3/8) \cdot (1/2)}{17/64} $$"></p><p><img src="report_eq01408125984531801724.png" alt="$$ \approx 71\% $$"></p><p>Therefore:</p><p><img src="report_eq11188890194043508052.png" alt="$$ P(y=1|x=[0,1]) \approx 29\% $$"></p><p>Therefore, the complete class predictions on the test set using Naive Bayes looks as follows:</p><pre>  x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat
+   0  |   1  |     21%    |     79%    |    1
+   1  |   0  |     80%    |     20%    |    0
+   1  |   1  |     71%    |     29%    |    0</pre><h2 id="8">Part B: PCA &amp; Clustering</h2><h2 id="9">EigenFaces</h2><pre class="codeinput">clear;
+X = load(<span class="string">'data/faces.txt'</span>)/255;
+</pre><pre class="codeinput">img = reshape(X(1,:), [24, 24]);
+imagesc(img);
+axis <span class="string">square</span>;
+colormap <span class="string">gray</span>;
+title(<span class="string">'Example Face'</span>)
+</pre><img vspace="5" hspace="5" src="report_13.png" alt=""> <p><b>(a)</b> Subtract the mean to make data non zero and take SVD</p><pre class="codeinput">[m, n] = size(X);
+
+mu = mean(X);
+X0 = bsxfun(@minus, X, mu);
+sigma = std(X0);
+X0 = bsxfun(@rdivide, X0, sigma);
+
+[U, S, V] = svd(X0);
+
+W=U*S;
+</pre><p><b>(b)</b> Compute approximation to X0 for K=1...10</p><pre class="codeinput">ks = 1:10;
+mserrs = zeros(length(ks));
+<span class="keyword">for</span> i=1:length(ks)
+    X0_hat = W(:, 1:ks(i))*V(:, 1:ks(i))';
+    mserrs(i) = mean(mean(X0-X0_hat).^2);
+<span class="keyword">end</span>
+
+figure();
+hold <span class="string">on</span>;
+plot(ks, mserrs);
+title(<span class="string">'Mean Squared Error Vs K'</span>);
+xlabel(<span class="string">'K'</span>);
+ylabel(<span class="string">'MSE'</span>);
+hold <span class="string">off</span>;
+</pre><img vspace="5" hspace="5" src="report_14.png" alt=""> <p><b>(c)</b> Display the first few principle directions.</p><pre class="codeinput">positive_pcs = {};
+negative_pcs = {};
+<span class="keyword">for</span> j=1:10
+    alpha = 2*median(abs(W(:, j)));
+    positive_pcs{j} = mu + alpha*(V(:, j)');
+    negative_pcs{j} = mu - alpha*(V(:, j)');
+<span class="keyword">end</span>
+
+<span class="keyword">for</span> i=1:3
+    img = reshape(positive_pcs{i}, [24, 24]);
+    figure(<span class="string">'name'</span>, sprintf(<span class="string">'Principal Direction (Positive) %d'</span>, i));
+    imagesc(img);
+    title(sprintf(<span class="string">'Principal Direction (Positive) %d'</span>, i));
+    axis <span class="string">square</span>;
+    colormap <span class="string">gray</span>;
+
+    img = reshape(negative_pcs{i}, [24, 24]);
+    figure(<span class="string">'name'</span>, sprintf(<span class="string">'Principal Direction (Negative) %d'</span>, i));
+    imagesc(img);
+    title(sprintf(<span class="string">'Principal Direction (Negative) %d'</span>, i))
+    axis <span class="string">square</span>;
+    colormap <span class="string">gray</span>;
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="report_15.png" alt=""> <img vspace="5" hspace="5" src="report_16.png" alt=""> <img vspace="5" hspace="5" src="report_17.png" alt=""> <img vspace="5" hspace="5" src="report_18.png" alt=""> <img vspace="5" hspace="5" src="report_19.png" alt=""> <img vspace="5" hspace="5" src="report_20.png" alt=""> <p><b>(d)</b> Latent space visualisation</p><pre class="codeinput">idx = [1:20];
+figure(<span class="string">'name'</span>, <span class="string">'Latent Space Visualisation'</span>); hold <span class="string">on</span>; axis <span class="string">ij</span>; colormap(gray);
+title(<span class="string">'Latent Space Visualisation'</span>)
+xlabel(<span class="string">'Principal Component 1'</span>);
+ylabel(<span class="string">'Principal Component 2'</span>);
+range = max(W(idx, 1:2)) - min(W(idx, 1:2));
+scale = [200 200]./range;
+<span class="keyword">for</span> i=idx, imagesc(W(i,1)*scale(1),W(i,2)*scale(2), reshape(X(i,:), 24, 24)); <span class="keyword">end</span>;
+</pre><img vspace="5" hspace="5" src="report_21.png" alt=""> <p><b>(e)</b></p><pre class="codeinput">ks = [5, 10, 50];
+faces = [201, 202, 203];
+
+<span class="keyword">for</span> f=1:length(faces)<span class="comment">% for every face</span>
+    figure(<span class="string">'name'</span>, sprintf(<span class="string">'face %d'</span>, faces(f)));
+    imagesc(reshape(X(faces(f),:), [24, 24]));
+    axis <span class="string">square</span>;
+    colormap <span class="string">gray</span>;
+    title(sprintf(<span class="string">'face %d'</span>, faces(f)));
+    <span class="keyword">for</span> i=1:length(ks) <span class="comment">% for every k</span>
+        figure(<span class="string">'name'</span>, sprintf(<span class="string">'face %d reconstructed with %d pcs'</span>, faces(f), ks(i)));
+        imagesc(reshape(W(faces(f), 1:ks(i))*V(1:576, 1:ks(i))', 24, 24));
+        axis <span class="string">square</span>;
+        colormap <span class="string">gray</span>;
+        title(sprintf(<span class="string">'face %d reconstructed with %d pcs'</span>, faces(f), ks(i)));
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="report_22.png" alt=""> <img vspace="5" hspace="5" src="report_23.png" alt=""> <img vspace="5" hspace="5" src="report_24.png" alt=""> <img vspace="5" hspace="5" src="report_25.png" alt=""> <img vspace="5" hspace="5" src="report_26.png" alt=""> <img vspace="5" hspace="5" src="report_27.png" alt=""> <img vspace="5" hspace="5" src="report_28.png" alt=""> <img vspace="5" hspace="5" src="report_29.png" alt=""> <img vspace="5" hspace="5" src="report_30.png" alt=""> <img vspace="5" hspace="5" src="report_31.png" alt=""> <img vspace="5" hspace="5" src="report_32.png" alt=""> <img vspace="5" hspace="5" src="report_33.png" alt=""> <h2 id="16">Clustering</h2><p><b>(a)</b> Clean up</p><pre class="codeinput">clc
+close <span class="string">all</span>
+clear
+<span class="comment">% Load iris data, first two features, ignore class</span>
+load(<span class="string">'iris.txt'</span>);
+iris = iris(:,1:2);
+<span class="comment">% Plot the data to visualise clustering</span>
+scatter(iris(:,1), iris(:,2), 15, <span class="string">'mo'</span>, <span class="string">'filled'</span>);
+hold <span class="string">on</span>;
+title(<span class="string">'Iris dataset'</span>);
+</pre><img vspace="5" hspace="5" src="report_34.png" alt=""> <p><b>(b)</b></p><pre class="codeinput"><span class="comment">% For k=5, initialise random centroids</span>
+K1=5;
+initial_centroids1 = [
+  4.68	  4.07;
+  6.17	  3.12;
+  6.52	  2.71;
+  7.39	  2.36;
+  6.22	  2.38
+];
+
+<span class="comment">% For k=20, initialise random centroids</span>
+K2=20;
+initial_centroids2 = [
+  4.41	  3.23;  5.37	  3.24;  5.69	  2.22;  5.69	  3.08;
+  4.84	  2.86;  5.83	  2.91;  5.28	  2.36;  6.84	  2.70;
+  5.47	  4.02;  5.21	  3.17;  5.94	  2.33;  4.97	  2.08;
+  6.09	  2.83;  4.47	  3.41;  7.42	  3.45;  5.06	  3.73;
+  7.07	  3.50;  4.94	  3.55;  7.03	  2.87;  7.62	  2.90
+];
+
+centroids1 = initial_centroids1;
+centroids2 = initial_centroids2;
+
+<span class="comment">% Perform k-means on the data with 10 iterations, k=5 and k=20</span>
+<span class="keyword">for</span> i = 1:10
+    idx1 = findClosestCentroids(iris, centroids1);
+    idx2 = findClosestCentroids(iris, centroids2);
+    centroids1 = computeCentroids(iris, idx1, K1);
+    centroids2 = computeCentroids(iris, idx2, K2);
+<span class="keyword">end</span>
+
+<span class="comment">% Plot final centroids of k=5</span>
+figure; hold <span class="string">on</span>;
+plotDataPoints(iris, idx1, K1);
+plot(centroids1(:,1), centroids1(:,2), <span class="string">'x'</span>, <span class="keyword">...</span>
+    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>, <span class="keyword">...</span>
+    <span class="string">'MarkerSize'</span>, 10, <span class="string">'LineWidth'</span>, 3);
+title(<span class="string">'K-means clustering where k=5'</span>);
+
+<span class="comment">% Plot final centroids of k=20</span>
+figure; hold <span class="string">on</span>;
+plotDataPoints(iris, idx2, K2);
+plot(centroids2(:,1), centroids2(:,2), <span class="string">'x'</span>, <span class="keyword">...</span>
+    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>, <span class="keyword">...</span>
+    <span class="string">'MarkerSize'</span>, 10, <span class="string">'LineWidth'</span>, 3);
+title(<span class="string">'K-means clustering where k=20'</span>);
+</pre><img vspace="5" hspace="5" src="report_35.png" alt=""> <img vspace="5" hspace="5" src="report_36.png" alt=""> <p><b>(c)</b> Agglomerative clustering Compute the single, and complete linkage</p><pre class="codeinput">sLink = linkage(iris, <span class="string">'single'</span>);
+cLink = linkage(iris, <span class="string">'complete'</span>);
+
+<span class="comment">% Plot single linkage, 5 clusters</span>
+palette5 = hsv(5);
+palette20 = hsv(20);
+clust = cluster(sLink, <span class="string">'maxclust'</span>, 5);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette5(clust,:), <span class="string">'filled'</span>);
+title(<span class="string">'Single linkage agglomerative clustering, 5 clusters'</span>);
+
+<span class="comment">% Plot single linkage, 20 clusters</span>
+clust = cluster(sLink, <span class="string">'maxclust'</span>, 20);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette20(clust,:), <span class="string">'filled'</span>);
+title(<span class="string">'Single linkage agglomerative clustering, 20 clusters'</span>);
+
+<span class="comment">% Plot complete linkage, 5 clusters</span>
+clust = cluster(cLink, <span class="string">'maxclust'</span>, 5);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette5(clust,:), <span class="string">'filled'</span>);
+title(<span class="string">'Complete linkage agglomerative clustering, 5 clusters'</span>);
+
+<span class="comment">% Plot complete linkage, 20 clusters</span>
+clust = cluster(cLink, <span class="string">'maxclust'</span>, 20);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette20(clust,:), <span class="string">'filled'</span>);
+title(<span class="string">'Complete linkage agglomerative clustering, 20 clusters'</span>);
+</pre><img vspace="5" hspace="5" src="report_37.png" alt=""> <img vspace="5" hspace="5" src="report_38.png" alt=""> <img vspace="5" hspace="5" src="report_39.png" alt=""> <img vspace="5" hspace="5" src="report_40.png" alt=""> <p><b>(d)</b> Reset</p><pre class="codeinput">clear;
+<span class="comment">% Load data</span>
+load(<span class="string">'iris.txt'</span>);
+iris = [iris(:,1), iris(:,2)];
+<span class="comment">% Start with 5 components</span>
+<span class="comment">% Good initialisation vectors found through trial and error</span>
+K = 5;
+initial_clusters = [
+    5.0    3.5;
+    5.0    2.5;
+    5.7    2.7;
+    6.5    3.0;
+    5.2    3.9;
+];
+
+<span class="comment">% Perform EM on Gaussian mixture model</span>
+[assign, clusters, soft, loglikelihd] = emCluster(iris, 5, initial_clusters);
+
+<span class="comment">% Plot the results</span>
+palette5 = hsv(5);
+palette20 = hsv(20);
+figure; hold <span class="string">on</span>;
+scatter(iris(:,1), iris(:,2), 15, palette5(assign,:), <span class="string">'filled'</span>);
+<span class="keyword">for</span> i = 1:K
+    plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), <span class="string">'k'</span>, <span class="string">'linewidth'</span>, 1);
+<span class="keyword">end</span>
+title(<span class="string">'EM Gausian Mixture Model with 5 Components'</span>);
+
+<span class="comment">% Next using 20 components</span>
+<span class="comment">% Good initialisation vectors found through trial and error</span>
+K = 20;
+initial_clusters = [
+    6.4913    2.9333;    4.4814    2.9917;    6.2679    2.9460;    6.8588    3.0600;
+    4.7738    3.2812;    4.9284    2.4325;    5.7432    3.0969;    7.7151    2.8911;
+    5.8724    2.7003;    6.4796    2.8164;    6.3604    2.5873;    5.4780    3.4583;
+    7.9528    3.8910;    6.4738    3.2295;    6.4996    3.2526;    6.1055    2.8347;
+    4.3266    3.0099;    4.9465    3.1763;    5.1536    3.3008;    4.8142    3.4620;
+];
+
+<span class="comment">% Perform EM on Gaussian mixture model</span>
+[assign, clusters, soft, loglikelihd] = emCluster(iris, 20, initial_clusters);
+
+<span class="comment">% Plot the results</span>
+figure; hold <span class="string">on</span>;
+scatter(iris(:,1), iris(:,2), 15, palette20(assign,:), <span class="string">'filled'</span>);
+<span class="keyword">for</span> i = 1:K
+    plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), <span class="string">'k'</span>, <span class="string">'linewidth'</span>, 1);
+<span class="keyword">end</span>
+title(<span class="string">'EM Gausian ixture Model with 20 Components'</span>);
+</pre><img vspace="5" hspace="5" src="report_41.png" alt=""> <img vspace="5" hspace="5" src="report_42.png" alt=""> <p>Due to the way in which EM Gaussian mixture frequently overlaps multiple clusters, it may not be the most suitable classifying technique on this data.</p><p>Agglomerative</p><pre class="codeinput">clc; clear; close <span class="string">all</span>;
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% CAB420 - Machine Learning - Assignment 2
 %
@@ -1201,37 +526,445 @@ svm_test(@Kgaussian, 1, C, set3_train, set3_test)
 
 %%
 % *2.*
+clc;
+clear;
+close all;
+load data_ps3_2.mat
+C = 1000;
+
+set(gcf,'Visible', 'off');
+lin_err = svm_test2(@Klinear, 1, C, set4_train, set4_test);
+poly_err = svm_test2(@Kpoly, 2, C, set4_train, set4_test);
+gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
+
+% compare to log regress classifier
+
+% print results
 
 %% Bayes Classifiers
 %% 
 % *(a)*
+%
+% Probabilities needed for joint Bayes classifier can be found by counting
+% the number of occurances of each possible x1 x2 combination ([0,0] [0,1]
+% [1,0] [1,1]). Then finding how many of each of these assosiate with each
+% class. E.g. 
+%
+% Where $$ y=0 $$
+%
+% $$ P(y|x) = \frac{1}{4}\ ,\ x = [0,0] $$
+% 
+% $$ P(y|x) = \frac{1}{4}\ ,\ x = [0,1] $$
+% 
+% $$ P(y|x) = \frac{3}{3}\ ,\ x = [1,0] $$
+% 
+% $$ P(y|x) = \frac{3}{5}\ ,\ x = [1,1] $$
+%
+% Where $$ y=1 $$
+%
+% $$ P(y|x) = \frac{3}{4}\ ,\ x = [0,0] $$
+% 
+% $$ P(y|x) = \frac{3}{4}\ ,\ x = [0,1] $$
+% 
+% $$ P(y|x) = \frac{0}{3}\ ,\ x = [1,0] $$
+% 
+% $$ P(y|x) = \frac{2}{5}\ ,\ x = [1,1] $$
+%
+% Therefore, the complete class predictions on the test set looks as
+% follows: 
+%
+%    x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat  
+%     0  |   1  |     25%    |     75%    |    1
+%     1  |   0  |    100%    |      0%    |    0
+%     1  |   1  |     60%    |     40%    |    0
+
 %% 
 % *(b)*
+%
+% To create a Naive Bayes classifier first the probabilities of each class
+% will be needed: 
+%
+% $$ P(y=0) = \frac{8}{16} $$
+%
+% $$ P(y=1) = \frac{8}{16} $$
+%
+% Next, the probability that each x could be in each class: 
+%
+%         y=0  |  y=1
+%  x1  |  6/8  |  2/8
+%  x2  |  4/8  |  5/8
+%
+% To classify the test set P(x|y) is calculated for each $x_1,\ x_2$
+% combination seen in the test set, on each class
+% 
+% $$ P(x=[0,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(1 - \frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$
+%
+% $$ = \frac{1}{8} $$
+%
+% $$ P(x=[0,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(1 - \frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$
+%
+% $$ = \frac{15}{32} $$
+% 
+% $$ P(x=[1,0]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(\frac{6}{8}\right)\cdot \left(1 - \frac{4}{8}\right) $$
+%
+% $$ = \frac{3}{8} $$
+% 
+% $$ P(x=[1,0]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(\frac{2}{8}\right)\cdot \left(1 - \frac{5}{8}\right) $$
+%
+% $$ = \frac{3}{32} $$
+% 
+% $$ P(x=[1,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(\frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$
+%
+% $$ = \frac{3}{8} $$
+% 
+% $$ P(x=[1,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$
+%
+% $$ = \left(\frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$
+%
+% $$ = \frac{5}{32} $$
+% 
+% Next the P(x) is calculated with the formula 
+%
+% $$ P(x) = \sum_i P(x|y_i)\cdot P(y_i) $$
+%
+% on all test data values of x. 
+%
+% $$ P(x = [0,1]) = \left(\frac{1}{8} \cdot \frac{1}{2}\right) + \left(\frac{15}{32} \cdot \frac{1}{2}\right) $$
+%
+% $$ = \frac{19}{64} $$
+% 
+% $$ P(x = [1,0]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{3}{32} \cdot \frac{1}{2}\right) $$
+% 
+% $$ = \frac{15}{64} $$
+%
+% $$ P(x = [1,1]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{5}{32} \cdot \frac{1}{2}\right) $$
+%
+% $$ = \frac{17}{64} $$
+% 
+% Finally, the probability of y given each x value can be found by using
+% Bayes rule: 
+%
+% $$ P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)} $$
+%
+% On x=[0,1]:
+% 
+% $$ P(y=0|x=[0,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$
+% 
+% $$ = \frac{(1/8) \cdot (1/2)}{19/64} $$
+%
+% $$ \approx 21\% $$
+%
+% Therefore:
+%
+% $$ P(y=1|x=[0,1]) \approx 79\% $$
+%
+% And on x=[1,0]:
+% 
+% $$ P(y=0|x=[1,0]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$
+% 
+% $$ = \frac{(3/8) \cdot (1/2)}{15/64} $$
+%
+% $$ \approx 80\% $$
+%
+% Therefore:
+%
+% $$ P(y=1|x=[0,1]) \approx 20\% $$
+%
+% And on x=[1,1]:
+% 
+% $$ P(y=0|x=[1,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$
+% 
+% $$ = \frac{(3/8) \cdot (1/2)}{17/64} $$
+%
+% $$ \approx 71\% $$
+%
+% Therefore:
+%
+% $$ P(y=1|x=[0,1]) \approx 29\% $$
+% 
+% Therefore, the complete class predictions on the test set using Naive 
+% Bayes looks as follows: 
+%
+%    x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat  
+%     0  |   1  |     21%    |     79%    |    1
+%     1  |   0  |     80%    |     20%    |    0
+%     1  |   1  |     71%    |     29%    |    0
+
 
 %% Part B: PCA & Clustering
 
-%% Eigen Faces
+%% EigenFaces
+clear;
+X = load('data/faces.txt')/255;
+%%
+img = reshape(X(1,:), [24, 24]);
+imagesc(img);
+axis square;
+colormap gray;
+title('Example Face')
+
 %% 
-% *(a)*
+% *(a)* Subtract the mean to make data non zero and take SVD
+[m, n] = size(X);
+
+mu = mean(X);
+X0 = bsxfun(@minus, X, mu);
+sigma = std(X0);
+X0 = bsxfun(@rdivide, X0, sigma);
+
+[U, S, V] = svd(X0);
+
+W=U*S;
+
 %% 
-% *(b)*
+% *(b)* Compute approximation to X0 for K=1...10
+ks = 1:10;
+mserrs = zeros(length(ks));
+for i=1:length(ks)
+    X0_hat = W(:, 1:ks(i))*V(:, 1:ks(i))';
+    mserrs(i) = mean(mean(X0-X0_hat).^2);
+end
+
+figure();
+hold on;
+plot(ks, mserrs);
+title('Mean Squared Error Vs K');
+xlabel('K');
+ylabel('MSE');
+hold off;
+
+
 %% 
-% *(c)*
+% *(c)* Display the first few principle directions.
+positive_pcs = {};
+negative_pcs = {};
+for j=1:10
+    alpha = 2*median(abs(W(:, j)));
+    positive_pcs{j} = mu + alpha*(V(:, j)');
+    negative_pcs{j} = mu - alpha*(V(:, j)');
+end
+
+for i=1:3
+    img = reshape(positive_pcs{i}, [24, 24]);
+    figure('name', sprintf('Principal Direction (Positive) %d', i));
+    imagesc(img);
+    title(sprintf('Principal Direction (Positive) %d', i));
+    axis square;
+    colormap gray;
+    
+    img = reshape(negative_pcs{i}, [24, 24]);
+    figure('name', sprintf('Principal Direction (Negative) %d', i));
+    imagesc(img);
+    title(sprintf('Principal Direction (Negative) %d', i))
+    axis square;
+    colormap gray;
+end
+
 %% 
-% *(d)*
+% *(d)* Latent space visualisation
+idx = [1:20];
+figure('name', 'Latent Space Visualisation'); hold on; axis ij; colormap(gray);
+title('Latent Space Visualisation')
+xlabel('Principal Component 1');
+ylabel('Principal Component 2');
+range = max(W(idx, 1:2)) - min(W(idx, 1:2));
+scale = [200 200]./range;
+for i=idx, imagesc(W(i,1)*scale(1),W(i,2)*scale(2), reshape(X(i,:), 24, 24)); end;
+
 %% 
 % *(e)*
+
+ks = [5, 10, 50];
+faces = [201, 202, 203];
+
+for f=1:length(faces)% for every face
+    figure('name', sprintf('face %d', faces(f)));
+    imagesc(reshape(X(faces(f),:), [24, 24]));
+    axis square;
+    colormap gray;
+    title(sprintf('face %d', faces(f)));
+    for i=1:length(ks) % for every k
+        figure('name', sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
+        imagesc(reshape(W(faces(f), 1:ks(i))*V(1:576, 1:ks(i))', 24, 24));
+        axis square;
+        colormap gray;
+        title(sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
+    end
+end
+
+
 
 %% Clustering
 %% 
 % *(a)*
+% Clean up
+clc
+close all
+clear
+% Load iris data, first two features, ignore class 
+load('iris.txt');
+iris = iris(:,1:2);
+% Plot the data to visualise clustering 
+scatter(iris(:,1), iris(:,2), 15, 'mo', 'filled');
+hold on;
+title('Iris dataset');
+
 %% 
 % *(b)*
+
+% For k=5, initialise random centroids
+K1=5;
+initial_centroids1 = [
+  4.68	  4.07;	
+  6.17	  3.12;	
+  6.52	  2.71;	
+  7.39	  2.36;	
+  6.22	  2.38	
+];
+
+% For k=20, initialise random centroids
+K2=20;
+initial_centroids2 = [ 
+  4.41	  3.23;  5.37	  3.24;  5.69	  2.22;  5.69	  3.08;
+  4.84	  2.86;  5.83	  2.91;  5.28	  2.36;  6.84	  2.70;
+  5.47	  4.02;  5.21	  3.17;  5.94	  2.33;  4.97	  2.08;
+  6.09	  2.83;  4.47	  3.41;  7.42	  3.45;  5.06	  3.73;
+  7.07	  3.50;  4.94	  3.55;  7.03	  2.87;  7.62	  2.90   
+];
+
+centroids1 = initial_centroids1;
+centroids2 = initial_centroids2;
+
+% Perform k-means on the data with 10 iterations, k=5 and k=20
+for i = 1:10
+    idx1 = findClosestCentroids(iris, centroids1);
+    idx2 = findClosestCentroids(iris, centroids2);
+    centroids1 = computeCentroids(iris, idx1, K1); 
+    centroids2 = computeCentroids(iris, idx2, K2); 
+end 
+
+% Plot final centroids of k=5
+figure; hold on; 
+plotDataPoints(iris, idx1, K1);
+plot(centroids1(:,1), centroids1(:,2), 'x', ...
+    'MarkerEdgeColor','k', ...
+    'MarkerSize', 10, 'LineWidth', 3);
+title('K-means clustering where k=5');
+
+% Plot final centroids of k=20
+figure; hold on; 
+plotDataPoints(iris, idx2, K2);
+plot(centroids2(:,1), centroids2(:,2), 'x', ...
+    'MarkerEdgeColor','k', ...
+    'MarkerSize', 10, 'LineWidth', 3);
+title('K-means clustering where k=20');
+
 %% 
 % *(c)*
+% Agglomerative clustering
+% Compute the single, and complete linkage
+sLink = linkage(iris, 'single');
+cLink = linkage(iris, 'complete');
+
+% Plot single linkage, 5 clusters
+palette5 = hsv(5);
+palette20 = hsv(20);
+clust = cluster(sLink, 'maxclust', 5);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette5(clust,:), 'filled');
+title('Single linkage agglomerative clustering, 5 clusters');
+
+% Plot single linkage, 20 clusters
+clust = cluster(sLink, 'maxclust', 20);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette20(clust,:), 'filled');
+title('Single linkage agglomerative clustering, 20 clusters');
+
+% Plot complete linkage, 5 clusters
+clust = cluster(cLink, 'maxclust', 5);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette5(clust,:), 'filled');
+title('Complete linkage agglomerative clustering, 5 clusters');
+
+% Plot complete linkage, 20 clusters
+clust = cluster(cLink, 'maxclust', 20);
+figure;
+scatter(iris(:,1), iris(:,2), 15, palette20(clust,:), 'filled');
+title('Complete linkage agglomerative clustering, 20 clusters');
+
+
 %% 
 % *(d)*
+% Reset
+clear; 
+% Load data
+load('iris.txt');
+iris = [iris(:,1), iris(:,2)];
+% Start with 5 components 
+% Good initialisation vectors found through trial and error
+K = 5;
+initial_clusters = [
+    5.0    3.5;
+    5.0    2.5;
+    5.7    2.7;
+    6.5    3.0;
+    5.2    3.9;	
+];
 
+% Perform EM on Gaussian mixture model
+[assign, clusters, soft, loglikelihd] = emCluster(iris, 5, initial_clusters);
+
+% Plot the results 
+palette5 = hsv(5);
+palette20 = hsv(20);
+figure; hold on;
+scatter(iris(:,1), iris(:,2), 15, palette5(assign,:), 'filled');
+for i = 1:K
+    plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), 'k', 'linewidth', 1);
+end
+title('EM Gausian Mixture Model with 5 Components');
+
+% Next using 20 components
+% Good initialisation vectors found through trial and error
+K = 20;
+initial_clusters = [
+    6.4913    2.9333;    4.4814    2.9917;    6.2679    2.9460;    6.8588    3.0600;
+    4.7738    3.2812;    4.9284    2.4325;    5.7432    3.0969;    7.7151    2.8911;
+    5.8724    2.7003;    6.4796    2.8164;    6.3604    2.5873;    5.4780    3.4583;
+    7.9528    3.8910;    6.4738    3.2295;    6.4996    3.2526;    6.1055    2.8347;
+    4.3266    3.0099;    4.9465    3.1763;    5.1536    3.3008;    4.8142    3.4620;   
+];
+
+% Perform EM on Gaussian mixture model
+[assign, clusters, soft, loglikelihd] = emCluster(iris, 20, initial_clusters);
+
+% Plot the results 
+figure; hold on;
+scatter(iris(:,1), iris(:,2), 15, palette20(assign,:), 'filled');
+for i = 1:K
+    plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), 'k', 'linewidth', 1);
+end
+title('EM Gausian ixture Model with 20 Components');
+
+%%
+% Due to the way in which EM Gaussian mixture frequently overlaps multiple
+% clusters, it may not be the most suitable classifying technique on this
+% data. 
+% 
+% Agglomerative
+
+%%
+clc; clear; close all;
 
 
 ##### SOURCE END #####
