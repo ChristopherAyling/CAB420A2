@@ -248,7 +248,7 @@ ks = 1:10;
 mserrs = zeros(length(ks));
 for i=1:length(ks)
     X0_hat = W(:, 1:ks(i))*V(:, 1:ks(i))';
-    mserrs(i) = mean(mean(X0-X0_hat).^2);
+    mserrs(i) = mean(mean((X0-X0_hat).^2));
 end
 
 figure();
