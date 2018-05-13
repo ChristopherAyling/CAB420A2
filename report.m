@@ -49,13 +49,16 @@ load data_ps3_2.mat
 C = 1000;
 
 set(gcf,'Visible', 'off');
+%%
 lin_err = svm_test2(@Klinear, 1, C, set4_train, set4_test);
+%%
 poly_err = svm_test2(@Kpoly, 2, C, set4_train, set4_test);
+%%
 gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
-% compare to log regress classifier
-
-% print results
+%%
+% Comparison to Logistic Regression Classifier
+% ...
 
 %% Bayes Classifiers
 %% 
