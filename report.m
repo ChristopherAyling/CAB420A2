@@ -481,15 +481,15 @@ title('EM Gausian ixture Model with 20 Components');
 % data. 
 % 
 % Agglomerative clustering with single linkage also seems like it poorly
-% Overall, complete linkage agglomerative clustering is the most reasonable
 % classifies this data, having huge variance in cluster size. Complete
 % linkage howevever shows very reasonable clusters, holding integrity even
 % with 20 clusters. 
 % 
 % K-means clustering also seems very reasonable, much like agglomerative
 % methods. However, requireing initial clusters is certainly a downside.
-% in the EM Gaussian mixture method. 
 % Error can depend greatly on the initialisation. This problem is also seen
+% in the EM Gaussian mixture method. 
 %
+% Overall, complete linkage agglomerative clustering is the most reasonable
 % method. 
 clc; clear; close all;
