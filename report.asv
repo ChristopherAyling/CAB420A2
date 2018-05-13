@@ -49,16 +49,13 @@ load data_ps3_2.mat
 C = 1000;
 
 set(gcf,'Visible', 'off');
-%%
 lin_err = svm_test2(@Klinear, 1, C, set4_train, set4_test);
-%%
 poly_err = svm_test2(@Kpoly, 2, C, set4_train, set4_test);
-%%
 gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
-%%
-% Comparison to Logistic Regression Classifier
-% ...
+% compare to log regress classifier
+
+% print results
 
 %% Bayes Classifiers
 %% 
@@ -222,7 +219,7 @@ gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
 %% Part B: PCA & Clustering
 
-%% EigenFaces
+%% Eigen Faces
 clear;
 X = load('data/faces.txt')/255;
 %%
@@ -230,10 +227,9 @@ img = reshape(X(1,:), [24, 24]);
 imagesc(img);
 axis square;
 colormap gray;
-title('Example Face')
 
 %% 
-% *(a)* Subtract the mean to make data non zero and take SVD
+% *(a)*
 [m, n] = size(X);
 
 mu = mean(X);
@@ -246,80 +242,48 @@ X0 = bsxfun(@rdivide, X0, sigma);
 W=U*S;
 
 %% 
-% *(b)* Compute approximation to X0 for K=1...10
-ks = 1:10;
-mserrs = zeros(length(ks));
+% *(b)*
+ks = [1:10];
 for i=1:length(ks)
     X0_hat = W(:, 1:ks(i))*V(:, 1:ks(i))';
-    mserrs(i) = mean(mean((X0-X0_hat).^2));
+    mse(i) = mean(mean(X0-X0_hat).^2);
 end
 
 figure();
 hold on;
-plot(ks, mserrs);
-title('Mean Squared Error Vs K');
+plot(ks, mse);
+title('???'); %TODO Idk what to call this yet
 xlabel('K');
 ylabel('MSE');
 hold off;
 
 
 %% 
-% *(c)* Display the first few principle directions.
-positive_pcs = {};
-negative_pcs = {};
+% *(c)*
+what = {};
+what2 = {}
 for j=1:10
     alpha = 2*median(abs(W(:, j)));
-    positive_pcs{j} = mu + alpha*(V(:, j)');
-    negative_pcs{j} = mu - alpha*(V(:, j)');
+    what{j} = mu + alpha*(V(:, j)');
+    what2{j} = mu - alpha*(V(:, j)');
 end
 
-for i=1:3
-    img = reshape(positive_pcs{i}, [24, 24]);
-    figure('name', sprintf('Principal Direction (Positive) %d', i));
-    imagesc(img);
-    title(sprintf('Principal Direction (Positive) %d', i));
-    axis square;
-    colormap gray;
-    
-    img = reshape(negative_pcs{i}, [24, 24]);
-    figure('name', sprintf('Principal Direction (Negative) %d', i));
-    imagesc(img);
-    title(sprintf('Principal Direction (Negative) %d', i))
-    axis square;
-    colormap gray;
-end
+img = [reshape(what{1}, [24, 24])];
+figure(8);
+imagesc(img);
+axis square;
+colormap gray;
 
 %% 
-% *(d)* Latent space visualisation
+% *(d)*
 idx = [1:20];
-figure('name', 'Latent Space Visualisation'); hold on; axis ij; colormap(gray);
-title('Latent Space Visualisation')
-xlabel('Principal Component 1');
-ylabel('Principal Component 2');
+figure; hold on; axis ij; colormap(gray);
 range = max(W(idx, 1:2)) - min(W(idx, 1:2));
 scale = [200 200]./range;
 for i=idx, imagesc(W(i,1)*scale(1),W(i,2)*scale(2), reshape(X(i,:), 24, 24)); end;
 
 %% 
 % *(e)*
-
-ks = [5, 10, 50];
-faces = [201, 202, 203];
-
-for f=1:length(faces)% for every face
-    figure('name', sprintf('face %d', faces(f)));
-    imagesc(reshape(X(faces(f),:), [24, 24]));
-    axis square;
-    colormap gray;
-    title(sprintf('face %d', faces(f)));
-    for i=1:length(ks) % for every k
-        figure('name', sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
-        imagesc(reshape(W(faces(f), 1:ks(i))*V(1:576, 1:ks(i))', 24, 24));
-        axis square;
-        colormap gray;
-        title(sprintf('face %d reconstructed with %d pcs', faces(f), ks(i)));
-    end
-end
 
 
 
@@ -451,7 +415,7 @@ scatter(iris(:,1), iris(:,2), 15, palette5(assign,:), 'filled');
 for i = 1:K
     plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), 'k', 'linewidth', 1);
 end
-title('EM Gausian Mixture Model with 5 Components');
+title('EM Gausian ixture Model with 5 Components');
 
 % Next using 20 components
 % Good initialisation vectors found through trial and error
@@ -475,21 +439,14 @@ for i = 1:K
 end
 title('EM Gausian ixture Model with 20 Components');
 
-%%
 % Due to the way in which EM Gaussian mixture frequently overlaps multiple
 % clusters, it may not be the most suitable classifying technique on this
 % data. 
 % 
 % Agglomerative clustering with single linkage also seems like it poorly
-% Overall, complete linkage agglomerative clustering is the most reasonable
 % classifies this data, having huge variance in cluster size. Complete
 % linkage howevever shows very reasonable clusters, holding integrity even
 % with 20 clusters. 
 % 
 % K-means clustering also seems very reasonable, much like agglomerative
-% methods. However, requireing initial clusters is certainly a downside.
-% in the EM Gaussian mixture method. 
-% Error can depend greatly on the initialisation. This problem is also seen
-%
-% method. 
-clc; clear; close all;
+% methods. However, n
