@@ -21,22 +21,31 @@ C = 1000;
 %Test the SVMs and compare
 %% Set 1
 svm_test(@Klinear, 1, C, set1_train, set1_test)
+title('Linear SVM on Data set 1');
 svm_test(@Kpoly, 2, C, set1_train, set1_test)
+title('Polynomial SVM on Data set 1');
 svm_test(@Kgaussian, 1, C, set1_train, set1_test)
+title('Gaussian SVM on Data set 1');
 % Linear SVM had 4.46% of test examples misclassified (the lowest of the
 % three). Therefore, for set 1, linear SVM is best. 
 
 %% Set 2
 svm_test(@Klinear, 1, C, set2_train, set2_test)
+title('Linear SVM on Data set 2');
 svm_test(@Kpoly, 2, C, set2_train, set2_test)
+title('Polynomial SVM on Data set 2');
 svm_test(@Kgaussian, 1, C, set2_train, set2_test)
+title('Gaussian SVM on Data set 2');
 % Polynomial (of degree 2) SVM had 1.1% of test examples misclassifies
 % (the lowest of the three). Therefore, for set 2, polynomial SVM is best.
 
 %% Set 3
 svm_test(@Klinear, 1, C, set3_train, set3_test)
+title('Linear SVM on Data set 3');
 svm_test(@Kpoly, 2, C, set3_train, set3_test)
+title('Polynomial SVM on Data set 3');
 svm_test(@Kgaussian, 1, C, set3_train, set3_test)
+title('Gaussian SVM on Data set 3');
 % Gaussian SVM had no misclassifications. Therefore, for set 3, Gaussian
 % SVM is best. 
 
