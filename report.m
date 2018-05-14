@@ -58,7 +58,23 @@ gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
 %%
 % Comparison to Logistic Regression Classifier
-% ...
+% A logistic regression classifier was built using the Python programming
+% language and Keras library. The result of which are below. For
+% implementation details see the attatched `logistic_regression.pdf` or
+% load `logistic_regression.pynb` using Jupyter.
+%
+% Logistic Regression Accuracy: 0.5
+%
+% The logistic regression classifier does not work well for this task due
+% to the small amount of training examples and binary data. SVM's peform
+% well on this task due to the fact that they aim to create a margin of
+% maximum width. Logistic regression classifiers don't do this and therefor
+% overfit. Methods of increasing the generalization abilities of logistic
+% regression classifiers include using drop out and data augmentation
+% techniques such as rotations, zooms and flips (in datasets where this is
+% appropriate) to artificially increase the amount of training data.
+% Transforms can also be applied at test time to increase performace there.
+%
 
 %% Bayes Classifiers
 %% 

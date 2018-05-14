@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>CAB420 - Machine Learning - Assignment 2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-05-13"><meta name="DC.source" content="report.m"><style type="text/css">
+      --><title>CAB420 - Machine Learning - Assignment 2</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-05-14"><meta name="DC.source" content="report.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>CAB420 - Machine Learning - Assignment 2</h1><!--introduction--><p>Alex Wilson and Christopher Ayling</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Part A: SVMS and Bayes Classifiers</a></li><li><a href="#2">Support Vector Machines</a></li><li><a href="#9">Bayes Classifiers</a></li><li><a href="#12">Part B: PCA &amp; Clustering</a></li><li><a href="#13">EigenFaces</a></li><li><a href="#20">Clustering</a></li></ul></div><h2 id="1">Part A: SVMS and Bayes Classifiers</h2><h2 id="2">Support Vector Machines</h2><p><b>1.</b></p><pre class="codeinput"><span class="comment">% Clean up</span>
+  </style></head><body><div class="content"><h1>CAB420 - Machine Learning - Assignment 2</h1><!--introduction--><p>Alex Wilson and Christopher Ayling</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Part A: SVMS and Bayes Classifiers</a></li><li><a href="#2">Support Vector Machines</a></li><li><a href="#4">Set 1</a></li><li><a href="#5">Set 2</a></li><li><a href="#6">Set 3</a></li><li><a href="#12">Bayes Classifiers</a></li><li><a href="#15">Part B: PCA &amp; Clustering</a></li><li><a href="#16">EigenFaces</a></li><li><a href="#23">Clustering</a></li></ul></div><h2 id="1">Part A: SVMS and Bayes Classifiers</h2><h2 id="2">Support Vector Machines</h2><p><b>1.</b></p><pre class="codeinput"><span class="comment">% Clean up</span>
 clc
 clear
 close <span class="string">all</span>
@@ -76,26 +76,11 @@ load <span class="string">data_ps3_2.mat</span>
 C = 1000;
 
 <span class="comment">%Test the SVMs and compare</span>
-<span class="comment">% Set 1</span>
-svm_test(@Klinear, 1, C, set1_train, set1_test)
+</pre><h2 id="4">Set 1</h2><pre class="codeinput">svm_test(@Klinear, 1, C, set1_train, set1_test)
 svm_test(@Kpoly, 2, C, set1_train, set1_test)
 svm_test(@Kgaussian, 1, C, set1_train, set1_test)
-<span class="comment">% Linear SVM had 0.0446 of test examples misclassified (the lowest of the</span>
+<span class="comment">% Linear SVM had 4.46% of test examples misclassified (the lowest of the</span>
 <span class="comment">% three). Therefore, for set 1, linear SVM is best.</span>
-
-<span class="comment">% Set 2</span>
-svm_test(@Klinear, 1, C, set2_train, set2_test)
-svm_test(@Kpoly, 2, C, set2_train, set2_test)
-svm_test(@Kgaussian, 1, C, set2_train, set2_test)
-<span class="comment">% Polynomial (of degree 2) SVM had 0.011 of test examples misclassifies</span>
-<span class="comment">% (the lowest of the three). Therefore, for set 2, polynomial SVM is best.</span>
-
-<span class="comment">% Set 3</span>
-svm_test(@Klinear, 1, C, set3_train, set3_test)
-svm_test(@Kpoly, 2, C, set3_train, set3_test)
-svm_test(@Kgaussian, 1, C, set3_train, set3_test)
-<span class="comment">% Gaussian SVM had no misclassifications. Therefore, for set 3, Gaussian</span>
-<span class="comment">% SVM is best.</span>
 </pre><pre class="codeoutput">The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
 
@@ -134,7 +119,12 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 TEST RESULTS: 0.0571 of test examples were misclassified.
-The interior-point-convex algorithm does not accept an initial point.
+</pre><img vspace="5" hspace="5" src="report_01.png" alt=""> <img vspace="5" hspace="5" src="report_02.png" alt=""> <img vspace="5" hspace="5" src="report_03.png" alt=""> <h2 id="5">Set 2</h2><pre class="codeinput">svm_test(@Klinear, 1, C, set2_train, set2_test)
+svm_test(@Kpoly, 2, C, set2_train, set2_test)
+svm_test(@Kgaussian, 1, C, set2_train, set2_test)
+<span class="comment">% Polynomial (of degree 2) SVM had 1.1% of test examples misclassifies</span>
+<span class="comment">% (the lowest of the three). Therefore, for set 2, polynomial SVM is best.</span>
+</pre><pre class="codeoutput">The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
 
 Minimum found that satisfies the constraints.
@@ -171,7 +161,12 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 TEST RESULTS: 0.014 of test examples were misclassified.
-The interior-point-convex algorithm does not accept an initial point.
+</pre><img vspace="5" hspace="5" src="report_04.png" alt=""> <img vspace="5" hspace="5" src="report_05.png" alt=""> <img vspace="5" hspace="5" src="report_06.png" alt=""> <h2 id="6">Set 3</h2><pre class="codeinput">svm_test(@Klinear, 1, C, set3_train, set3_test)
+svm_test(@Kpoly, 2, C, set3_train, set3_test)
+svm_test(@Kgaussian, 1, C, set3_train, set3_test)
+<span class="comment">% Gaussian SVM had no misclassifications. Therefore, for set 3, Gaussian</span>
+<span class="comment">% SVM is best.</span>
+</pre><pre class="codeoutput">The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
 
 Minimum found that satisfies the constraints.
@@ -209,7 +204,7 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 TEST RESULTS: 0 of test examples were misclassified.
-</pre><img vspace="5" hspace="5" src="report_01.png" alt=""> <img vspace="5" hspace="5" src="report_02.png" alt=""> <img vspace="5" hspace="5" src="report_03.png" alt=""> <img vspace="5" hspace="5" src="report_04.png" alt=""> <img vspace="5" hspace="5" src="report_05.png" alt=""> <img vspace="5" hspace="5" src="report_06.png" alt=""> <img vspace="5" hspace="5" src="report_07.png" alt=""> <img vspace="5" hspace="5" src="report_08.png" alt=""> <img vspace="5" hspace="5" src="report_09.png" alt=""> <p><b>2.</b></p><pre class="codeinput">clc;
+</pre><img vspace="5" hspace="5" src="report_07.png" alt=""> <img vspace="5" hspace="5" src="report_08.png" alt=""> <img vspace="5" hspace="5" src="report_09.png" alt=""> <p><b>2.</b></p><pre class="codeinput">clc;
 clear;
 close <span class="string">all</span>;
 load <span class="string">data_ps3_2.mat</span>
@@ -228,7 +223,7 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 
-TEST RESULTS: 0.14 of test examples were misclassified.
+TEST RESULTS: 0.1375 of test examples were misclassified.
 </pre><img vspace="5" hspace="5" src="report_10.png" alt=""> <pre class="codeinput">poly_err = svm_test2(@Kpoly, 2, C, set4_train, set4_test);
 </pre><pre class="codeoutput">The interior-point-convex algorithm does not accept an initial point.
 Ignoring X0.
@@ -255,7 +250,7 @@ and constraints are satisfied to within the default value of the constraint tole
 
 
 TEST RESULTS: 0.085 of test examples were misclassified.
-</pre><img vspace="5" hspace="5" src="report_12.png" alt=""> <p>Comparison to Logistic Regression Classifier ...</p><h2 id="9">Bayes Classifiers</h2><p><b>(a)</b></p><p>Probabilities needed for joint Bayes classifier can be found by counting the number of occurances of each possible x1 x2 combination ([0,0] [0,1] [1,0] [1,1]). Then finding how many of each of these assosiate with each class. E.g.</p><p>Where <img src="report_eq06679783982583062013.png" alt="$$ y=0 $$"></p><p><img src="report_eq07174598757261453869.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq14855731075494964205.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq11813535016307224419.png" alt="$$ P(y|x) = \frac{3}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq17176349358415773300.png" alt="$$ P(y|x) = \frac{3}{5}\ ,\ x = [1,1] $$"></p><p>Where <img src="report_eq02167458294693543060.png" alt="$$ y=1 $$"></p><p><img src="report_eq11033532155087216859.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq05369295233390269734.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq16134061026334500762.png" alt="$$ P(y|x) = \frac{0}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq13496977117302688557.png" alt="$$ P(y|x) = \frac{2}{5}\ ,\ x = [1,1] $$"></p><p>Therefore, the complete class predictions on the test set looks as follows:</p><pre>  x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat
+</pre><img vspace="5" hspace="5" src="report_12.png" alt=""> <p>Comparison to Logistic Regression Classifier A logistic regression classifier was built using the Python programming language and Keras library. The result of which are below. For implementation details see the attatched `logistic_regression.pdf`.</p><p>Accuracy</p><h2 id="12">Bayes Classifiers</h2><p><b>(a)</b></p><p>Probabilities needed for joint Bayes classifier can be found by counting the number of occurances of each possible x1 x2 combination ([0,0] [0,1] [1,0] [1,1]). Then finding how many of each of these assosiate with each class. E.g.</p><p>Where <img src="report_eq06679783982583062013.png" alt="$$ y=0 $$"></p><p><img src="report_eq07174598757261453869.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq14855731075494964205.png" alt="$$ P(y|x) = \frac{1}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq11813535016307224419.png" alt="$$ P(y|x) = \frac{3}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq17176349358415773300.png" alt="$$ P(y|x) = \frac{3}{5}\ ,\ x = [1,1] $$"></p><p>Where <img src="report_eq02167458294693543060.png" alt="$$ y=1 $$"></p><p><img src="report_eq11033532155087216859.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,0] $$"></p><p><img src="report_eq05369295233390269734.png" alt="$$ P(y|x) = \frac{3}{4}\ ,\ x = [0,1] $$"></p><p><img src="report_eq16134061026334500762.png" alt="$$ P(y|x) = \frac{0}{3}\ ,\ x = [1,0] $$"></p><p><img src="report_eq13496977117302688557.png" alt="$$ P(y|x) = \frac{2}{5}\ ,\ x = [1,1] $$"></p><p>Therefore, the complete class predictions on the test set looks as follows:</p><pre>  x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat
    0  |   1  |     25%    |     75%    |    1
    1  |   0  |    100%    |      0%    |    0
    1  |   1  |     60%    |     40%    |    0</pre><p><b>(b)</b></p><p>To create a Naive Bayes classifier first the probabilities of each class will be needed:</p><p><img src="report_eq08733904908155435988.png" alt="$$ P(y=0) = \frac{8}{16} $$"></p><p><img src="report_eq17644573422549736043.png" alt="$$ P(y=1) = \frac{8}{16} $$"></p><p>Next, the probability that each x could be in each class:</p><pre>       y=0  |  y=1
@@ -263,7 +258,7 @@ x1  |  6/8  |  2/8
 x2  |  4/8  |  5/8</pre><p>To classify the test set P(x|y) is calculated for each <img src="report_eq12452141560309048751.png" alt="$x_1,\ x_2$"> combination seen in the test set, on each class</p><p><img src="report_eq15101901161455994150.png" alt="$$ P(x=[0,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02010039422427748609.png" alt="$$ = \left(1 - \frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$"></p><p><img src="report_eq01088027859849714145.png" alt="$$ = \frac{1}{8} $$"></p><p><img src="report_eq07297577056424786628.png" alt="$$ P(x=[0,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq13814144923604233870.png" alt="$$ = \left(1 - \frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$"></p><p><img src="report_eq03613889617847864723.png" alt="$$ = \frac{15}{32} $$"></p><p><img src="report_eq01805199305739710664.png" alt="$$ P(x=[1,0]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq03360723122032135743.png" alt="$$ = \left(\frac{6}{8}\right)\cdot \left(1 - \frac{4}{8}\right) $$"></p><p><img src="report_eq11841121126034554100.png" alt="$$ = \frac{3}{8} $$"></p><p><img src="report_eq04403787839525975183.png" alt="$$ P(x=[1,0]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02654727447147148700.png" alt="$$ = \left(\frac{2}{8}\right)\cdot \left(1 - \frac{5}{8}\right) $$"></p><p><img src="report_eq07809309358138474515.png" alt="$$ = \frac{3}{32} $$"></p><p><img src="report_eq11528753465781089822.png" alt="$$ P(x=[1,1]\ |\ y=0) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq04869917003738548789.png" alt="$$ = \left(\frac{6}{8}\right)\cdot \left(\frac{4}{8}\right) $$"></p><p><img src="report_eq11841121126034554100.png" alt="$$ = \frac{3}{8} $$"></p><p><img src="report_eq03952955696775771779.png" alt="$$ P(x=[1,1]\ |\ y=1) = P(x_1\ |\ y)\cdot P(x_2\ |\ y)$$"></p><p><img src="report_eq02223072781415199179.png" alt="$$ = \left(\frac{2}{8}\right)\cdot \left(\frac{5}{8}\right) $$"></p><p><img src="report_eq12671523109205246009.png" alt="$$ = \frac{5}{32} $$"></p><p>Next the P(x) is calculated with the formula</p><p><img src="report_eq13949362751295953089.png" alt="$$ P(x) = \sum_i P(x|y_i)\cdot P(y_i) $$"></p><p>on all test data values of x.</p><p><img src="report_eq02605152681708540147.png" alt="$$ P(x = [0,1]) = \left(\frac{1}{8} \cdot \frac{1}{2}\right) + \left(\frac{15}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq13594826097924396948.png" alt="$$ = \frac{19}{64} $$"></p><p><img src="report_eq00515571973433963842.png" alt="$$ P(x = [1,0]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{3}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq14181149855771462580.png" alt="$$ = \frac{15}{64} $$"></p><p><img src="report_eq16920157623305074601.png" alt="$$ P(x = [1,1]) = \left(\frac{3}{8} \cdot \frac{1}{2}\right) + \left(\frac{5}{32} \cdot \frac{1}{2}\right) $$"></p><p><img src="report_eq08200529874904421418.png" alt="$$ = \frac{17}{64} $$"></p><p>Finally, the probability of y given each x value can be found by using Bayes rule:</p><p><img src="report_eq06245087331750993367.png" alt="$$ P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p>On x=[0,1]:</p><p><img src="report_eq13917582989817839041.png" alt="$$ P(y=0|x=[0,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq05058990540658050770.png" alt="$$ = \frac{(1/8) \cdot (1/2)}{19/64} $$"></p><p><img src="report_eq16103833419505139392.png" alt="$$ \approx 21\% $$"></p><p>Therefore:</p><p><img src="report_eq13706197855769162630.png" alt="$$ P(y=1|x=[0,1]) \approx 79\% $$"></p><p>And on x=[1,0]:</p><p><img src="report_eq11333572171270899958.png" alt="$$ P(y=0|x=[1,0]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq15610801766847789451.png" alt="$$ = \frac{(3/8) \cdot (1/2)}{15/64} $$"></p><p><img src="report_eq16360476181954792000.png" alt="$$ \approx 80\% $$"></p><p>Therefore:</p><p><img src="report_eq02017721597263676628.png" alt="$$ P(y=1|x=[0,1]) \approx 20\% $$"></p><p>And on x=[1,1]:</p><p><img src="report_eq17117026065958485479.png" alt="$$ P(y=0|x=[1,1]) = \frac{P(x|y) \cdot P(y)}{P(x)} $$"></p><p><img src="report_eq08562609533734353299.png" alt="$$ = \frac{(3/8) \cdot (1/2)}{17/64} $$"></p><p><img src="report_eq01408125984531801724.png" alt="$$ \approx 71\% $$"></p><p>Therefore:</p><p><img src="report_eq11188890194043508052.png" alt="$$ P(y=1|x=[0,1]) \approx 29\% $$"></p><p>Therefore, the complete class predictions on the test set using Naive Bayes looks as follows:</p><pre>  x1  |  x2  |  P(y=0|x)  |  P(y=1|x)  |  y-hat
    0  |   1  |     21%    |     79%    |    1
    1  |   0  |     80%    |     20%    |    0
-   1  |   1  |     71%    |     29%    |    0</pre><h2 id="12">Part B: PCA &amp; Clustering</h2><h2 id="13">EigenFaces</h2><pre class="codeinput">clear;
+   1  |   1  |     71%    |     29%    |    0</pre><h2 id="15">Part B: PCA &amp; Clustering</h2><h2 id="16">EigenFaces</h2><pre class="codeinput">clear;
 X = load(<span class="string">'data/faces.txt'</span>)/255;
 </pre><pre class="codeinput">img = reshape(X(1,:), [24, 24]);
 imagesc(img);
@@ -342,7 +337,7 @@ faces = [201, 202, 203];
         title(sprintf(<span class="string">'face %d reconstructed with %d pcs'</span>, faces(f), ks(i)));
     <span class="keyword">end</span>
 <span class="keyword">end</span>
-</pre><img vspace="5" hspace="5" src="report_22.png" alt=""> <img vspace="5" hspace="5" src="report_23.png" alt=""> <img vspace="5" hspace="5" src="report_24.png" alt=""> <img vspace="5" hspace="5" src="report_25.png" alt=""> <img vspace="5" hspace="5" src="report_26.png" alt=""> <img vspace="5" hspace="5" src="report_27.png" alt=""> <img vspace="5" hspace="5" src="report_28.png" alt=""> <img vspace="5" hspace="5" src="report_29.png" alt=""> <img vspace="5" hspace="5" src="report_30.png" alt=""> <img vspace="5" hspace="5" src="report_31.png" alt=""> <img vspace="5" hspace="5" src="report_32.png" alt=""> <img vspace="5" hspace="5" src="report_33.png" alt=""> <h2 id="20">Clustering</h2><p><b>(a)</b> Clean up</p><pre class="codeinput">clc
+</pre><img vspace="5" hspace="5" src="report_22.png" alt=""> <img vspace="5" hspace="5" src="report_23.png" alt=""> <img vspace="5" hspace="5" src="report_24.png" alt=""> <img vspace="5" hspace="5" src="report_25.png" alt=""> <img vspace="5" hspace="5" src="report_26.png" alt=""> <img vspace="5" hspace="5" src="report_27.png" alt=""> <img vspace="5" hspace="5" src="report_28.png" alt=""> <img vspace="5" hspace="5" src="report_29.png" alt=""> <img vspace="5" hspace="5" src="report_30.png" alt=""> <img vspace="5" hspace="5" src="report_31.png" alt=""> <img vspace="5" hspace="5" src="report_32.png" alt=""> <img vspace="5" hspace="5" src="report_33.png" alt=""> <h2 id="23">Clustering</h2><p><b>(a)</b> Clean up</p><pre class="codeinput">clc
 close <span class="string">all</span>
 clear
 <span class="comment">% Load iris data, first two features, ignore class</span>
@@ -475,8 +470,8 @@ scatter(iris(:,1), iris(:,2), 15, palette20(assign,:), <span class="string">'fil
     plotGauss2D(clusters.mu(i,:), clusters.Sig(:,:,i), <span class="string">'k'</span>, <span class="string">'linewidth'</span>, 1);
 <span class="keyword">end</span>
 title(<span class="string">'EM Gausian ixture Model with 20 Components'</span>);
-</pre><img vspace="5" hspace="5" src="report_41.png" alt=""> <img vspace="5" hspace="5" src="report_42.png" alt=""> <p>Due to the way in which EM Gaussian mixture frequently overlaps multiple clusters, it may not be the most suitable classifying technique on this data.</p><p>Agglomerative</p><pre class="codeinput">clc; clear; close <span class="string">all</span>;
-</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="report_41.png" alt=""> <img vspace="5" hspace="5" src="report_42.png" alt=""> <p>Due to the way in which EM Gaussian mixture frequently overlaps multiple clusters, it may not be the most suitable classifying technique on this data.</p><p>Agglomerative clustering with single linkage also seems like it poorly classifies this data, having huge variance in cluster size. Complete linkage howevever shows very reasonable clusters, holding integrity even with 20 clusters.</p><p>K-means clustering also seems very reasonable, much like agglomerative methods. However, requireing initial clusters is certainly a downside. Error can depend greatly on the initialisation. This problem is also seen in the EM Gaussian mixture method.</p><p>Overall, complete linkage agglomerative clustering is the most reasonable method.</p><pre class="codeinput">clc; clear; close <span class="string">all</span>;
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% CAB420 - Machine Learning - Assignment 2
 %
@@ -499,21 +494,21 @@ load data_ps3_2.mat
 C = 1000;
 
 %Test the SVMs and compare
-% Set 1
+%% Set 1
 svm_test(@Klinear, 1, C, set1_train, set1_test)
 svm_test(@Kpoly, 2, C, set1_train, set1_test)
 svm_test(@Kgaussian, 1, C, set1_train, set1_test)
-% Linear SVM had 0.0446 of test examples misclassified (the lowest of the
+% Linear SVM had 4.46% of test examples misclassified (the lowest of the
 % three). Therefore, for set 1, linear SVM is best. 
 
-% Set 2
+%% Set 2
 svm_test(@Klinear, 1, C, set2_train, set2_test)
 svm_test(@Kpoly, 2, C, set2_train, set2_test)
 svm_test(@Kgaussian, 1, C, set2_train, set2_test)
-% Polynomial (of degree 2) SVM had 0.011 of test examples misclassifies
+% Polynomial (of degree 2) SVM had 1.1% of test examples misclassifies
 % (the lowest of the three). Therefore, for set 2, polynomial SVM is best.
 
-% Set 3
+%% Set 3
 svm_test(@Klinear, 1, C, set3_train, set3_test)
 svm_test(@Kpoly, 2, C, set3_train, set3_test)
 svm_test(@Kgaussian, 1, C, set3_train, set3_test)
@@ -538,7 +533,11 @@ gauss_err = svm_test2(@Kgaussian, 1.5, C, set4_train, set4_test);
 
 %%
 % Comparison to Logistic Regression Classifier
-% ...
+% A logistic regression classifier was built using the Python programming
+% language and Keras library. The result of which are below. For
+% implementation details see the attatched `logistic_regression.pdf`.
+%
+% Accuracy
 
 %% Bayes Classifiers
 %% 
@@ -960,11 +959,18 @@ title('EM Gausian ixture Model with 20 Components');
 % clusters, it may not be the most suitable classifying technique on this
 % data. 
 % 
-% Agglomerative
-
-%%
+% Agglomerative clustering with single linkage also seems like it poorly
+% classifies this data, having huge variance in cluster size. Complete
+% linkage howevever shows very reasonable clusters, holding integrity even
+% with 20 clusters. 
+% 
+% K-means clustering also seems very reasonable, much like agglomerative
+% methods. However, requireing initial clusters is certainly a downside.
+% Error can depend greatly on the initialisation. This problem is also seen
+% in the EM Gaussian mixture method. 
+%
+% Overall, complete linkage agglomerative clustering is the most reasonable
+% method. 
 clc; clear; close all;
-
-
 ##### SOURCE END #####
 --></body></html>
